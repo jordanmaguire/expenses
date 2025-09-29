@@ -1,0 +1,17 @@
+{
+  "name": "Expenses",
+  "dockerFile": "../Dockerfile",
+  "forwardPorts": [],
+  "customizations": {
+    "vscode": {
+      "extensions": [],
+      "settings": {
+        "dotfiles.installCommand": "install_dev_container.sh",
+        "dotfiles.repository": "https://github.com/jordanmaguire/devcontainer_dotfiles.git"
+      }
+    }
+  },
+  "mounts": [
+    "source=${localWorkspaceFolder},target=/app,type=bind,consistency=cached"
+  ],
+}
