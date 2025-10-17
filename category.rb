@@ -3,6 +3,11 @@ class Transaction::Category
     @all ||= []
   end
 
+  def self.from_file(category_name:, filename:)
+    string_fragments = File.readlines("categories/#{ filename }").map(&:strip)
+    add(name: category_name, string_fragments: string_fragments)
+  end
+
   def self.add(name:, string_fragments:)
     all << new(
       name: name,
@@ -24,4 +29,20 @@ class Transaction::Category
   def to_s
     name
   end
+end
+
+[
+  "Cars",
+  "Fast Food",
+  "Groceries",
+  "Home Improvement",
+  "Leisure",
+  "Medical",
+  "Pets",
+  "Shopping",
+].each do |category_name|
+  Transaction::Category.from_file(
+    category_name: category_name,
+    filename: category_name.gsub(" ", "_"),
+  )
 end

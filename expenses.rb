@@ -37,3 +37,6 @@ end
 
 # ws = weekly_summaries.select { _1.transactions.count > 0 }
 # puts ws[3].uncategorized_transactions
+
+puts "#{ transactions.select(&:category).count } Transactions with a category"
+puts "#{ transactions.reject(&:category).count } Transactions without a category"
