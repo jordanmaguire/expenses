@@ -40,3 +40,7 @@ end
 
 puts "#{ transactions.select(&:category).count } Transactions with a category"
 puts "#{ transactions.reject(&:category).count } Transactions without a category"
+
+transactions.reject(&:category).each do |transaction|
+  puts "  - #{ transaction.narration }"
+end
