@@ -1,0 +1,23 @@
+Transaction::Category.add(
+  name: "Shopping",
+  string_fragments: [
+    "Amazon",
+    "APPLE.COM/BILL",
+    "BABY BUNTING",
+    "BABYLAND",
+    "BIG W",
+    "Bonds Whitford City",
+    "Booktopia",
+    "Cotton On",
+    "eBay",
+    "Kmart",
+    "Ikea",
+    "Myer",
+    "OFFICEWORKS",
+    "Shawncraft",
+    "Sheridan Outlet",
+    "Spotlight",
+    "Target",
+    "THE-ICONIC",
+  ],
+)

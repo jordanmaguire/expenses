@@ -1,0 +1,26 @@
+Transaction::Category.add(
+  name: "Fast Food",
+  string_fragments: [
+    "Baskin-Robbins",
+    "Crust",
+    "GELATO",
+    "GREENCOOL",
+    "Hoodburger",
+    "Hungry Jacks",
+    "KFC",
+    "Kohinoor",
+    "Mcdonalds",
+    "MIMU TABLE ORD",
+    "MISS MAUD",
+    "Nandos",
+    "Pastacup",
+    "Red Rooster",
+    "San Churro",
+    "SAN REMO PIZZA",
+    "SANOOK",
+    "The Coffee Club",
+    "THE GARDEN - THE LEEDE",
+    "VILLAGE CAFE & BURGER",
+    "Wendy milk bar",
+  ]
+)
