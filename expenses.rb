@@ -1,9 +1,13 @@
+# Run in IRB for quick debugging
+# require_relative "expenses"
+
 require 'byebug'
 require 'csv'
 require 'date'
 
 require_relative './transaction'
 require_relative './category'
+require_relative './transaction_category_prompt'
 require_relative './weekly_summary'
 
 Dir.glob(File.join(__dir__, "categories", "*.rb")).each do |file|
@@ -42,5 +46,5 @@ puts "#{ transactions.select(&:category).count } Transactions with a category"
 puts "#{ transactions.reject(&:category).count } Transactions without a category"
 
 transactions.reject(&:category).each do |transaction|
-  puts "  - #{ transaction.narration }"
+  TransactionCategoryPrompt.new(transaction: transaction).show_prompt
 end

@@ -57,6 +57,6 @@ end
 ].each do |category_name|
   Transaction::Category.add(
     name: category_name,
-    filename: category_name.gsub(" ", "_"),
+    filename: category_name.downcase.gsub(" ", "_"),
   )
 end
