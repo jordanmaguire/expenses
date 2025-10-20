@@ -1,5 +1,5 @@
-class TransactionCategoryPrompt
-  def initialize(categories: Transaction::Category.all, transaction:)
+class Expense::TransactionCategoryPrompt
+  def initialize(categories: Expense::Category.all, transaction:)
     @categories = categories
     @transaction = transaction
   end

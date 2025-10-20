@@ -1,4 +1,4 @@
-class Transaction
+class Expense::Transaction
   attr_accessor :amount, :date, :narration
 
   def initialize(amount:, date:, narration:)
@@ -8,7 +8,7 @@ class Transaction
   end
 
   def category
-    Transaction::Category.all.find { _1.matches?(self) }
+    Expense::Category.all.find { _1.matches?(self) }
   end
 
   def to_s

@@ -1,4 +1,4 @@
-class Transaction::Category
+class Expense::Category
   def self.all
     @all ||= []
   end
@@ -39,12 +39,12 @@ class Transaction::Category
   end
 
   private def file_path
-    "categories/#{ filename }"
+    "expense/categories/#{ filename }"
   end
 end
 
-Dir["categories/*"].map { |filename| filename.sub("categories/", "").split("_").map { _1.capitalize }.join(" ") }.each do |category_name|
-  Transaction::Category.add(
+Dir["expense/categories/*"].map { |filename| filename.sub("expense/categories/", "").split("_").map { _1.capitalize }.join(" ") }.each do |category_name|
+  Expense::Category.add(
     name: category_name,
     filename: category_name.downcase.gsub(" ", "_"),
   )
