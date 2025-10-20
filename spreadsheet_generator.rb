@@ -12,13 +12,17 @@ class SpreadsheetGenerator
 
     @monthly_summaries.each do |monthly_summary|
       wb.add_worksheet(name: monthly_summary.month_name) do |sheet|
-        sheet.add_row ["Date", "Amount", "Narration"]
-        monthly_summary.transactions.each do |transaction|
-          sheet.add_row [
-            transaction.date,
-            transaction.amount,
-            transaction.narration,
-          ]
+        monthly_summary.transactions_by_category.each do |category, transactions|
+          sheet.add_row [category.name, transactions.sum { _1.amount.to_f}]
+          sheet.add_row ["Date", "Amount", "Narration"]
+          transactions.each do |transaction|
+            sheet.add_row [
+              transaction.date,
+              transaction.amount,
+              transaction.narration,
+            ]
+          end
+          sheet.add_row []
         end
       end
     end
