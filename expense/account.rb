@@ -1,7 +1,7 @@
 class Expense::Account
-  def initialize(monthly_summaries:, file_path:)
+  def initialize(annual_summary:, file_path:)
+    @annual_summary = annual_summary
     @file_path = file_path
-    @monthly_summaries = monthly_summaries
   end
 
   def extract_expenses
@@ -22,7 +22,7 @@ class Expense::Account
         Expense::TransactionCategoryPrompt.new(transaction: transaction).show_prompt
       end
 
-      @monthly_summaries[transaction_date.month].transactions << transaction
+      @annual_summary.add_transaction(transaction)
     end
   end
 end

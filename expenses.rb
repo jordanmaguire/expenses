@@ -14,7 +14,6 @@ require_relative './expense/transaction'
 require_relative './expense/category'
 require_relative './expense/transaction_category_prompt'
 require_relative './monthly_summary'
-require_relative './spreadsheet_generator'
 
 # BSB Number,Account Number,Transaction Date,Narration,Cheque Number,Debit,Credit,Balance,Transaction Type
 annual_summary = AnnualSummary.new(

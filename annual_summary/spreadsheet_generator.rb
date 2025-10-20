@@ -1,3 +1,5 @@
+require "caxlsx"
+
 class AnnualSummary::SpreadsheetGenerator
   def initialize(annual_summary)
     @monthly_summaries = annual_summary.monthly_summaries
