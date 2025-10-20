@@ -43,18 +43,7 @@ class Transaction::Category
   end
 end
 
-[
-  "Cars",
-  "Fast Food",
-  "Groceries",
-  "Holidays",
-  "Home Improvement",
-  "Leisure",
-  "Medical",
-  "Pets",
-  "Recurring",
-  "Shopping",
-].each do |category_name|
+Dir["categories/*"].map { |filename| filename.sub("categories/", "").split("_").map { _1.capitalize }.join(" ") }.each do |category_name|
   Transaction::Category.add(
     name: category_name,
     filename: category_name.downcase.gsub(" ", "_"),
