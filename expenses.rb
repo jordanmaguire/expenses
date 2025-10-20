@@ -12,6 +12,7 @@ require_relative './expense/transaction'
 require_relative './expense/category'
 require_relative './expense/transaction_category_prompt'
 require_relative './monthly_summary'
+require_relative './spreadsheet_generator'
 
 Dir.glob(File.join(__dir__, "categories", "*.rb")).each do |file|
   require_relative file
@@ -48,3 +49,5 @@ monthly_summaries.values.reverse.each { _1.print_summary }
 #     Expense::TransactionCategoryPrompt.new(transaction: transaction).show_prompt
 #   end
 # end
+
+SpreadsheetGenerator.new(monthly_summaries.values).to_spreadsheet
