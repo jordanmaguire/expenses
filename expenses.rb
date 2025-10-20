@@ -46,5 +46,9 @@ puts "#{ transactions.select(&:category).count } Transactions with a category"
 puts "#{ transactions.reject(&:category).count } Transactions without a category"
 
 transactions.reject(&:category).each do |transaction|
-  TransactionCategoryPrompt.new(transaction: transaction).show_prompt
+  # The transaction may be able to be categories based on a selection earlier. So we attempt to re-categorise first
+  # and only prompt to choose a category if it still can't be found.
+  if transaction.category.nil?
+    TransactionCategoryPrompt.new(transaction: transaction).show_prompt
+  end
 end
